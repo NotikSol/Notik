@@ -8,6 +8,7 @@ max-width: 600px;
 padding: 0px 30px;
 background-image:  url(‘ÓÌ.jpg);
 background-color: #00BFFF;
+line-height: 15px;
 }
  
 header{
@@ -24,9 +25,10 @@ quote{
 
 author{
 	color: #4682B4;
+	line-height: 10px;
 }
 
-author{
+fon{
 	border: 2px solid #778899;
 	color: #000080;
 	padding: 5px; 
@@ -37,7 +39,8 @@ author{
 fieldset {
   	width: 500px;
   	margin-bottom: 1px;
- 	padding: 1px;
+ 	padding: 30px;
+	line-height: 30px;
 	color: #000080;
 margin-left: auto;
 margin-right: auto;
