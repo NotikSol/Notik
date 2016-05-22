@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html>
+
+  <head>
+      <meta charset="utf-8" />
+      <title>Лабораторная работа №1</title>
+      <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+
+<header class="mainH">
+       <h1>Регистрация</h1>
+</header>
+ 
+
+<quote>
+"Неученость не есть недостаток ума, 
+а знание не есть признак гения"
+</quote>
+
+<author>
+<p><em>Люк де Клапье Вовенарг </em></p>
+</author> 
+
+<fieldset>
+<legend><fon>Контактная информация</fon></legend>
+
+	<label for="sname">Фамилия <em>*</em></label>
+	<input id="sname" placeholder="Соловьева" size="25" >
+
+	<label for="name">Имя <em>*</em></label> 
+	<input id="name" placeholder="Наталья" size="25" > 
+
+	<label for="mname">Отчество </label>
+	<input id="mname" placeholder="Вячеславовна" size="25" >
+
+	<label for="ps">Пароль </label>
+	<input type="password" maxlength="25" size="25" name="password">
+
+	<label for="email">Email <em>*</em></label>
+	<input id="email" type="email" placeholder="Soloveva92@yandex.ru" size="25" >
+
+	<label for="phone"> Телефон </label>
+	<input id="phone" placeholder="+7(xxx)xxx-xxx" size="25" >
+</fieldset>
+
+<p>
+	<labl for "age">Дата рождения</lable>
+	<input if="age" type="date" min="1920-01-01" max="2999-12-31">
+</p>
+
+<p>
+	<labl for "sex">Укажите пол</lable>
+<lable for="men">
+	<input name="sex" type="radio"> М 
+</lable>
+
+<lable for="women">
+	<input name="sex" type="radio"> Ж 
+</lable>
+</p>
+
+	<p>Выберите страну
+
+     <datalist id="myCountry">
+        <span class="country">Выберите из списка:</span>
+        <select id="my_country">
+           <option label="Россия" value="Russian">
+           <option label="Великобритания" value="UK">
+           <option label="Германия" value="Germany">
+           <option label="Китай" value="China">
+           <option label="Франция" value="France">
+        </select>
+     </datalist>
+     
+     <input id="fruit" list="myCountry">
+</p>
+	
+<p><textarea> Немного о себе </textarea></p>
+
+<p><button> Отправить данные </button> </p>
+
+<p>На нашем сайте зарегестрировано 10 000 пользователей <meter max="50000" value="10000"></meter></p>
+
+<fieldset>
+<video controls="controls">
+	<source src="Тени.mp4" type="video/mp4" /> 
+</video>
+</fieldset>
+
+<footer>
+	<p>&copy; 2016, Соловьева Наталья Вячеславовна, ЭВТ-13-1б</p>
+</footer>
+
+</body>
+</html>
