@@ -49,17 +49,16 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 				if($_POST['myCountry']==China) $country = 'Китай';
 				else {
 					if($_POST['myCountry']==France) $country = 'Франция';
-					/*else {
-						if($_POST['myCountry']==" ") $country = '===';
-						else $country = '===';
-					}*/
+					else {
+						$country = '===';
+					}
 				}
 			}
 		}
-	}
+	} 
 	/*//Вывод полученных данных в страницу обработчика//
 	echo $_POST['login'].'<br />'.$_POST['sname'].'<br />'.$_POST['name'].'<br />'.$_POST['mname'].'<br />'.$_POST['password'].'<br />';
-	echo $_POST['email'].'<br />'.$_POST['phone'].'<br />'.$_POST['age'].'<br />'.$sex.'<br />'.$_POST['myCountry'].'<br />';
+	echo $_POST['email'].'<br />'.$_POST['phone'].'<br />'.$_POST['age'].'<br />'.$sex.'<br />'.$country.'<br />';
 */
 	$login=check($_POST['login']);
 	$sname=check($_POST['sname']);
@@ -88,13 +87,54 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 }else{header("<br>Location: index.php");
 }
 
+/*function sql ($query){
+	$db=mysql_connect("localhost", "Notik", "N@t@shech]{@")
+		or die("<br>Ошибка подключения к БД! ".mysql_error()."</br>");
+	mysql_select_db("db_test",$db)	
+		or die("<br>Ошибка выбора БД!".mysql_error()."</p>");
+	$result = mysql_query($query)
+		or die('<br>В данный момент нельзя добавить пользователя:<br>');
+	mysql_close($db);
+
+	if($result)
+		return 1;
+	else
+		return 0;
+}
+
+$sql="INSERT INTO web(login, sname, name, mname, ps, email, phone, age, sex, my_country)
+			VALUES ('%s','%s', '%s', '%s', '%s','%s','%s', '%s', '%s', '%s')";
+	//%d %s
+	$query = sprintf($sql, mysql_real_escape_string($login),
+						   mysql_real_escape_string($sname), 
+						   mysql_real_escape_string($name), 
+						   mysql_real_escape_string($mname), 
+						   mysql_real_escape_string($ps), 
+						   mysql_real_escape_string($email), 
+						   mysql_real_escape_string($phone),
+						   mysql_real_escape_string($age),
+						   mysql_real_escape_string($sex),
+						   mysql_real_escape_string($my_country));
+	echo "<br>".$query."<br>";*/
+
 $db=mysql_connect("localhost", "Notik", "N@t@shech]{@")
 	or die("<br>Ошибка подключения к БД! ".mysql_error()."</br>");
 mysql_select_db("db_test",$db)	
 	or die("<br>Ошибка выбора БД!".mysql_error()."</p>");
-$insertSQL="INSERT INTO web(login, sname, name, mname, ps, email, phone, age, sex, my_country)
-			VALUES ('".$login."','".$sname."','".$name."','".$mname."','".$ps."','".$email."','".$phone."','".$_POST['age']."','".$sex."','".$_POST['myCountry']."');";
-$result = mysql_query($insertSQL)
+	$sql="INSERT INTO web(login, sname, name, mname, ps, email, phone, age, sex, my_country)
+			VALUES ('%s','%s', '%s', '%s', '%s','%s','%s', '%s', '%s', '%s')";
+	$query = sprintf($sql, mysql_real_escape_string($login),
+						   mysql_real_escape_string($sname), 
+						   mysql_real_escape_string($name), 
+						   mysql_real_escape_string($mname), 
+						   mysql_real_escape_string($ps), 
+						   mysql_real_escape_string($email), 
+						   mysql_real_escape_string($phone),
+						   mysql_real_escape_string($age),
+						   mysql_real_escape_string($sex),
+						   mysql_real_escape_string($my_country));
+	echo "<br>".$query."<br>";
+$result = mysql_query($query)
 	or die('<br>В данный момент нельзя добавить пользователя:<br>');
 mysql_close($db);
 
@@ -102,23 +142,6 @@ mysql_close($db);
 		echo "<br>Данные пользователя добавлены<br>";
 	else
 		echo "<br>Данные пользователя отклонены<br>";
-		
-/*$db=mysql_connect("localhost", "Notik", "N@t@shech]{@")
-	or die("<br>Ошибка подключения к БД! ".mysql_error()."</br>");
-mysql_select_db("db_test",$db)	
-	or die("<br>Ошибка выбора БД!".mysql_error()."</p>");
-	$sql = "SELECT (login) FROM web WHER login='$login'";
-	$result = mysql_query($sql);
-	$row = mysql_fetch_array($result);
-echo printf("<br />Привет! ".$row);
-	if($result==0){
-		echo printf("<br />Привет! ".$row);
-		$insertSQL="INSERT INTO web(login, sname, name, mname, ps, email, phone, age, sex, my_country)
-			VALUES ('".$login."','".$sname."','".$name."','".$mname."','".$ps."','".$email."','".$phone."','".$_POST['age']."','".$sex."','".$_POST['myCountry']."');";
-	}else{echo "Выбраный логин уже существует";}
-$result = mysql_query($insertSQL)
-	or die('<br>В данный момент нельзя добавить пользователя:<br>');
-mysql_close($db);	*/
 ?>
 
 
